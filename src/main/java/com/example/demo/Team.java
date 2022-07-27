@@ -1,7 +1,6 @@
 package com.example.demo;
 
 import lombok.*;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -11,7 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class team {
+public class Team {
     @Id
     @Column(name = "id", nullable = false)
     private String id;

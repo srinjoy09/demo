@@ -8,6 +8,8 @@ public class studService {
 
     @Autowired
     public studRepo studRepo;
+    @Autowired
+    public teamRepo teamRepo;
 
     public void addStud(Student student){
         int s=0;
@@ -27,7 +29,17 @@ public class studService {
             s=s+100;
 
         student.setScore(s);
+        String teamId=student.getTeam_id();
+        Team team=teamRepo.findById(teamId).get();
+        team.setScore(team.getScore()+s);
         //System.out.println(s);
         studRepo.save(student);
+    }
+    public void deleteStudent(String id){
+        Student student= studRepo.findById(id).get();
+        String teamId=student.getTeam_id();
+        Team team=teamRepo.findById(teamId).get();
+        team.setScore((team.getScore()-student.getScore()));
+        studRepo.deleteById(id);
     }
 }

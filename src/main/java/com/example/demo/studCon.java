@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -16,5 +18,10 @@ public class studCon {
     public ResponseEntity<?> addStudent(@RequestBody Student student){
         studService.addStud(student);
         return new ResponseEntity<>("Student added", HttpStatus.OK);
+    }
+    @DeleteMapping("/delStudent/{id}")
+    public ResponseEntity<?> delStudent(@PathVariable String id){
+        studService.deleteStudent(id);
+        return new ResponseEntity<>("Student deleted", HttpStatus.OK);
     }
 }
