@@ -24,4 +24,9 @@ public class studCon {
         studService.deleteStudent(id);
         return new ResponseEntity<>("Student deleted", HttpStatus.OK);
     }
+    @PostMapping("/updateStudent")
+    public ResponseEntity<?> updateStudent(@RequestBody Student student){
+        studService.updateStud(student);
+        return new ResponseEntity<>("Student updated", HttpStatus.OK);
+    }
 }
