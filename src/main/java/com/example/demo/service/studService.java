@@ -1,5 +1,7 @@
-package com.example.demo;
+package com.example.demo.service;
 
+import com.example.demo.entity.Student;
+import com.example.demo.entity.Team;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -7,9 +9,9 @@ import org.springframework.stereotype.Service;
 public class studService {
 
     @Autowired
-    public studRepo studRepo;
+    public com.example.demo.repo.studRepo studRepo;
     @Autowired
-    public teamRepo teamRepo;
+    public com.example.demo.repo.teamRepo teamRepo;
 
     public void addStud(Student student){
         int s=0;
