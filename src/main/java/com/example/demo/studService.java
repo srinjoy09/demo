@@ -58,7 +58,7 @@ public class studService {
             s=s+200;
         if(student.getUserstory_3().equals("pending"))
             s=s+100;
-        int newscore=s-student.getScore();
+        int newscore=s-studRepo.findById(student.getId()).get().getScore();
         student.setScore(s);
         String teamId=student.getTeam_id();
         Team team=teamRepo.findById(teamId).get();
