@@ -1,5 +1,7 @@
-package com.example.demo;
+package com.example.demo.controller;
 
+import com.example.demo.entity.Student;
+import com.example.demo.entity.Team;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,10 +16,10 @@ import java.util.List;
 @Controller
 public class studCon {
     @Autowired
-    private studService studService;
+    private com.example.demo.service.studService studService;
 
     @Autowired
-    private teamRepo teamRepo;
+    private com.example.demo.repo.teamRepo teamRepo;
 
     @PostMapping("/addStudent")
     public ResponseEntity<?> addStudent(@RequestBody List<Student> students){
